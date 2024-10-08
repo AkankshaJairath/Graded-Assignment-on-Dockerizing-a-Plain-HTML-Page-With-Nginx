@@ -1,7 +1,5 @@
 # Graded-Assignment-on-Dockerizing-a-Plain-HTML-Page-With-Nginx
 
-# Dockerizing a Simple HTML Page with Nginx
-
 This project demonstrates how to Dockerize a simple HTML page using **Nginx** as the web server, push the Docker image to **AWS ECR**, and deploy the container on **AWS ECS** (Elastic Container Service).
 
 ## Project Overview
