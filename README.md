@@ -30,28 +30,9 @@ Before starting, make sure you have the following set up:
 - **AWS ECS and ECR** (for container orchestration and image storage)
 
 ## Steps
-
-### 1. Create an EC2 Instance and Install Docker & AWS CLI
-
-- Launch an EC2 instance on AWS
-- Install Docker and AWS CLI on the instance:
-
-  ```bash
-  sudo yum install docker -y
-  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-  unzip awscliv2.zip
-  sudo ./aws/install
-  aws --version
-  aws configure    # Configure the AWS CLI by creating a token using IAM
   ```
 
-- Ensure Docker is running:
-
-  ```bash
-  sudo service docker start
-  ```
-
-### 2. Create Basic HTML Page (`index.html`)
+### 1. Create Basic HTML Page (`index.html`)
 
 Create a simple `index.html` file with the following content:
 
@@ -67,7 +48,7 @@ Create a simple `index.html` file with the following content:
 </html>
 ```
 
-### 3. Create Nginx Configuration (`nginx.conf`)
+### 2. Create Nginx Configuration (`nginx.conf`)
 
 Configure Nginx to serve the `index.html` page by creating the following `nginx.conf` file:
 
@@ -83,7 +64,7 @@ server {
 }
 ```
 
-### 4. Create the Dockerfile
+### 3. Create the Dockerfile
 
 The Dockerfile defines the image that will be built. Here is an example Dockerfile:
 
@@ -104,7 +85,7 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
-### 5. Build and Push the Docker Image to Docker Hub or AWS ECR
+### 4. Build and Push the Docker Image to Docker Hub or AWS ECR
 
 #### Build the Docker Image
 
@@ -141,7 +122,7 @@ docker push bharatbhushan05/my-nginx-app:latest
    docker push 975050024946.dkr.ecr.us-west-2.amazonaws.com/bharat/nginx:latest
    ```
 
-### 6. Deploy the Container Using AWS ECS
+### 5. Deploy the Container Using AWS ECS
 
 1. **Create a Cluster in AWS ECS**:
    - Use the AWS Management Console to create a cluster.
@@ -155,22 +136,8 @@ docker push bharatbhushan05/my-nginx-app:latest
 4. **Access the Service**:
    - Attach a load balancer to the service if necessary and access the Nginx page via the Load Balancer DNS.
 
-### 7. Verify the Deployment
+### 6. Verify the Deployment
 
 Once deployed, you can access the application via the Load Balancer DNS (if an ALB is used) or directly through the public IP address of the ECS service.
 
-### Diagram
 
-For a detailed diagram flow of the process, refer to the following link:
-
-- [Diagram-Flow](https://app.eraser.io/workspace/H2FgUXbU9GDuCkIien6E?origin=share)
-
-## Conclusion
-
-This project demonstrates how to create a simple Nginx-based Docker application, push it to AWS ECR, and deploy it via AWS ECS.
-
-## Resources
-
-- [GitHub Repository](https://github.com/devops-bharat05/Dockerizing-HTML)
-- [AWS ECR Documentation](https://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.html)
-- [AWS ECS Documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html)
