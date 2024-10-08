@@ -41,7 +41,7 @@ Create a simple `index.html` file with the following content:
     <title>Hello, Docker!</title>
 </head>
 <body>
-    <h1>Welcome to Dockerized Nginx!</h1>
+    <h1>Hello, Docker!</h1>
 </body>
 </html>
 ```
@@ -106,6 +106,7 @@ docker build -t my-nginx-app .
 3. **Tag and Push the Image** to ECR:
 
    ```bash
+   docker build -t akanksha-nginx-image .
    docker tag my-nginx-app:latest 975050024946.dkr.ecr.us-west-2.amazonaws.com/bharat/nginx:latest
    docker push 975050024946.dkr.ecr.us-west-2.amazonaws.com/bharat/nginx:latest
    ```
