@@ -92,17 +92,7 @@ To build the image, run the following command in your terminal:
 ```bash
 docker build -t my-nginx-app .
 ```
-
-#### Push to Docker Hub (Optional)
-
-Login to Docker Hub and push the image:
-
-```bash
-docker login
-docker tag my-nginx-app bharatbhushan05/my-nginx-app:latest
-docker push bharatbhushan05/my-nginx-app:latest
 ```
-
 #### Push to AWS ECR
 
 1. **Create an ECR repository** in AWS.
